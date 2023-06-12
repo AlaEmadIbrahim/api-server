@@ -2,4 +2,5 @@
 
 ## Lab: Class 03
 
-- link  PR that i merged [api-server-link-PR](https://github.com/AlaEmadIbrahim/api-server/pull/1)
+- [PR-link-api-server](https://github.com/AlaEmadIbrahim/api-server/pull/1)
+- [deploy-netlify](https://subtle-babka-cf037b.netlify.app)
