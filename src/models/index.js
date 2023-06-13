@@ -2,7 +2,8 @@
 
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
-
+const foodModel = require("../routes/food");
+const clothesModel = require("../routes/clothes");
 const POSTGRES_URI = process.env.NODE_ENV === "test" ? "sqlite:memory:" : process.env.DATABASE_URL;
 
 let sequelizeOptions =
@@ -19,7 +20,8 @@ let sequelizeOptions =
 
 let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
-
+const foodTable = foodModel(sequelize, DataTypes);
+const clothesTable = clothesModel(sequelize, DataTypes);
 
 module.exports = {
   db: sequelize,
