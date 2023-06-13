@@ -1,10 +1,11 @@
 "use strict";
-
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
-const foodModel = require("../routes/food");
-const clothesModel = require("../routes/clothes");
-const POSTGRES_URI = process.env.NODE_ENV === "test" ? "sqlite:memory:" : process.env.DATABASE_URL;
+const foodModel = require("./food");
+const clothesModel = require("./clothes");
+const Collection = require("./collection");
+const POSTGRES_URI =
+  process.env.NODE_ENV === "test" ? "sqlite:memory:" : process.env.DATABASE_URL;
 
 let sequelizeOptions =
   process.env.NODE_ENV === "production"
@@ -23,8 +24,11 @@ let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 const foodTable = foodModel(sequelize, DataTypes);
 const clothesTable = clothesModel(sequelize, DataTypes);
 
+const foodCollection = new Collection(foodTable);
+const clothesCollection = new Collection(clothesTable);
+
 module.exports = {
   db: sequelize,
-  Food: foodTable,
-  Clothes: clothesTable,
+  Food: foodCollection,
+  Clothes: clothesCollection,
 };
