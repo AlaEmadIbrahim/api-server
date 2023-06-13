@@ -11,7 +11,7 @@ beforeAll(async () => {
 
 describe("Web server", () => {
   it("404 on a bad route", async () => {
-    const response = await mockRequest.get("/food22");
+    const response = await mockRequest.get("/foo");
     expect(response.status).toBe(404);
   });
 
