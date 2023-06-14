@@ -1,3 +1,5 @@
+"use strict";
+
 // lab 04 Create a Collection Class that accepts a Sequelize Model into the constructor and assigns it as this.model
 
 class Collection {
@@ -18,7 +20,7 @@ class Collection {
       console.log(error);
     }
   }
-  
+
   // read()
   async get(recordId) {
     try {
