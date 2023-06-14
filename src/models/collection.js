@@ -1,7 +1,13 @@
+"use strict";
+
+// lab 04 Create a Collection Class that accepts a Sequelize Model into the constructor and assigns it as this.model
+
 class Collection {
   constructor(model) {
     this.model = model;
   }
+
+  // create()
   async create(obj) {
     try {
       let newRecord = await this.model.create(obj);
@@ -15,6 +21,7 @@ class Collection {
     }
   }
 
+  // read()
   async get(recordId) {
     try {
       let record = null;
@@ -34,6 +41,7 @@ class Collection {
     }
   }
 
+  // update()
   async update(obj) {
     try {
       let updated = await record.update(obj);
@@ -47,6 +55,7 @@ class Collection {
     }
   }
 
+  //delete()
   async delete(recordId) {
     if (!recordId) {
       throw new Error("no id provided for model ", this.model);

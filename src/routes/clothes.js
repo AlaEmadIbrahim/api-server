@@ -13,7 +13,7 @@ clothesRouter.put("/clothes/:id", updateClothes);
 clothesRouter.delete("/clothes/:id", deleteClothes);
 
 function homePage(req, res) {
-  res.status(200).send("Hello From My DB");
+  res.status(200).send("Welcome to lab04");
   console.log(req.body);
 }
 
